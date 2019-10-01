@@ -19,3 +19,6 @@ docker-compose exec db bash
 mysql -u root -p
 GRANT ALL ON challenge.* TO 'ditouser'@'%' IDENTIFIED BY 'asdfgh';
 FLUSH PRIVILEGES;
+
+# Criar tabelas no banco
+docker-compose exec app php artisan migrate
