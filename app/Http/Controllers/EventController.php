@@ -14,7 +14,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+        return json_encode(['response' => 'event']);
     }
 
     /**
@@ -35,7 +35,7 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return 'create_event';
     }
 
     /**
@@ -46,7 +46,7 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        //
+        return 'one_event';
     }
 
     /**
@@ -69,7 +69,7 @@ class EventController extends Controller
      */
     public function update(Request $request, Event $event)
     {
-        //
+        return 'update_event';
     }
 
     /**
@@ -80,6 +80,6 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        //
+        return 'delete_event';
     }
 }
