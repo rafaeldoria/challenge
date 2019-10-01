@@ -19,5 +19,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::prefix('v1')->group(function(){
-    Route::resource('events', 'EventController');
+    Route::resources([
+        'events' => 'EventController',
+        'users' => 'UserController'
+    ]);
 });
+
+Auth::routes();
