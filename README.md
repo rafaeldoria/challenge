@@ -27,6 +27,9 @@ docker-compose exec app php artisan migrate
 docker-compose exec app php artisan passport:install
 
 ### Criar usuário - Pegar token
-Utilizar rota users -> post (criar usuário)
-Utilizar rota auth -> get (pegar client_id e client_secret para acesso ao token)
-Utilizar rota auth -> post (pegar acess_token do tipo Bearer)
+Utilizar rota users -> post (criar usuário)  
+Utilizar rota em auth - api/v1/auth_client -> post (pegar client_id e client_secret para acesso ao token)  
+Utilizar rota em auth - oauth/token -> post (pegar acess_token do tipo Bearer)
+
+### Authorization API's
+Adicionar type 'Bearer Token' e adcionar o Token
