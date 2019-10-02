@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Event;
+use App\Models\Event;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -35,7 +35,7 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        return 'create_event';
+        return Event::create($request->all());
     }
 
     /**
