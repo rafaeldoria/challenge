@@ -33,3 +33,6 @@ Utilizar rota em auth - oauth/token -> post (pegar acess_token do tipo Bearer)
 
 ### Authorization API's
 Adicionar type 'Bearer Token' e adcionar o Token
+
+### Npm instal
+npm instal && npm run production
