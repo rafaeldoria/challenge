@@ -14,7 +14,12 @@ class EventController extends Controller
      */
     public function index()
     {
-        return json_encode(['response' => 'event']);
+        $minutes = \Carbon\Carbon::now()->addMinutes(10);
+        $events = \Cache::remember('api::events', $minutes, function () {
+            return Event::all();
+        });
+
+        return $events;
     }
 
     /**
@@ -35,6 +40,7 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
+        \Cache::forget('api::events');
         return Event::create($request->all());
     }
 
