@@ -33,8 +33,8 @@ class OauthClientController extends Controller
     private function validationLogin($request)
     {
         $login = false;
-        if ($hashedPassword = User::where('email', $request->email)->first()->password) {
-            $login = Hash::check($request->password, $hashedPassword);
+        if ($hashedPassword = User::where('email', $request->email)->first()) {
+            $login = Hash::check($request->password, $hashedPassword->password);
         }
         return $login;
     }

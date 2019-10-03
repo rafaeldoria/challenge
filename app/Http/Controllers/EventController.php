@@ -50,7 +50,7 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function show(Event $event)
+    public function show(Request $request)
     {
         return 'one_event';
     }
@@ -87,5 +87,12 @@ class EventController extends Controller
     public function destroy(Event $event)
     {
         return 'delete_event';
+    }
+
+    public function likeEvents(Request $request)
+    {
+        $string = $request->string . "%";
+        $events = Event::where('event', 'like', $string)->get();
+        return $events;
     }
 }

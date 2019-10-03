@@ -6,7 +6,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: teste/app
+    image: laravel_api
     container_name: app
     restart: unless-stopped
     tty: true
