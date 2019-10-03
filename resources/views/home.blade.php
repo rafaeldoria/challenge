@@ -17,15 +17,18 @@
                     You are logged in!
                 </div>
 
-                <div class="form-row">
-                    <div class="col-md-6 mb-3">
-                    <label for="validationServer03">Cidade</label>
-                    <input type="text" class="form-control is-invalid" id="validationServer03" placeholder="Cidade" required>
-                    <div class="invalid-feedback">
-                        Por favor, informe uma cidade válida.
-                    </div>
-                    </div>
+                <div class="card-body">
+                    <form>
+                        <div class="col-md-6 mb-3">
+                        <label for="validationServer03">Buscar Eventos</label>
+                        <input type="text" class="form-control valid" id="strEvent" placeholder="Evento" required>
+                        <div class="invalid-feedback" style="display:none">
+                            Por favor, informe uma cidade válida.
+                        </div>
+                        </div>
+                    </form>
                 </div>
+
             </div>
         </div>
     </div>
