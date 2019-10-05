@@ -7,9 +7,13 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\OauthClient;
 use App\Models\User;
 use Laravel\Passport\Passport;
+use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Client;
 
 class OauthClientController extends Controller
 {
+    private $auth_client_id = 2;
+    private $auth_client_secret = 'm5gro9gaHQx3bziueVDSKMwCNF8jt1EPH1lgQaAt';
     /**
      * Display the specified resource.
      *
@@ -37,6 +41,35 @@ class OauthClientController extends Controller
             $login = Hash::check($request->password, $hashedPassword->password);
         }
         return $login;
+    }
+
+    public function getCredentialsOauth()
+    {
+        return [
+            'client_id' => $this->auth_client_id,
+            'client_secret' => $this->auth_client_secret
+        ];
+    }
+
+    public function getToken($auth)
+    {
+        $client = new Client();
+        try {
+            $response = $client->post('http://webserver/oauth/token', [
+                'form_params' => [
+                    'grant_type' => 'password',
+                    'client_id' => $auth['client_id'],
+                    'client_secret' => $auth['client_secret'],
+                    'username' => \Auth::user()->email,
+                    'password' => 'dito',
+                    'scope' => ''
+                ],
+            ]);
+            
+            return json_decode((string) $response->getBody(), true);
+        } catch (\Throwable $th) {
+            return false;
+        }
     }
 
 }
