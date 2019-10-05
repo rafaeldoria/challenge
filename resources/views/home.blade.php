@@ -21,19 +21,13 @@
                     <form>
                         <div class="col-md-6 mb-3">
                         <label for="validationServer03">Buscar Eventos</label>
-                        <input type="text" class="form-control valid" id="strEvent" placeholder="Evento" required>
+                        <input type="text" class="form-control valid" id="strEvent" placeholder="Evento">
                         <div class="invalid-feedback" style="display:none">
-                            Por favor, informe uma cidade válida.
+                            Por favor, informe um evento válido.
                         </div>
                         </div>
                     </form>
                 </div>
-
-                <div class = "ui-widget">
-         <p>Type "a" or "s"</p>
-         <label for = "automplete-1">Tags: </label>
-         <input id = "automplete-1">
-      </div>
 
             </div>
         </div>

@@ -93,8 +93,7 @@ class EventController extends Controller
     {
         $string = $request->string . "%";
         $events = Event::select('event')->where('event', 'like', $string)->get();
-        return response()->json([
-            'all' => $events,
-        ]);
+        
+        return response()->json($events);
     }
 }

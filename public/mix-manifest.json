@@ -1,6 +1,8 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/js/auto/jquery-1.10.2.js": "/js/auto/jquery-1.10.2.js",
-    "/js/auto/jquery-ui.js": "/js/auto/jquery-ui.js"
+    "/js/auto/autocomplete.min.js": "/js/auto/autocomplete.min.js",
+    "/js/auto/jquery-1.11.2.min.js": "/js/auto/jquery-1.11.2.min.js",
+    "/css/autocomplete.min.css": "/css/autocomplete.min.css",
+    "/css/autocomplete.themes.min.css": "/css/autocomplete.themes.min.css"
 }

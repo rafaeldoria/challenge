@@ -12,6 +12,8 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-   .js('resources/js/auto/jquery-1.10.2.js', 'public/js/auto/jquery-1.10.2.js')
-   .js('resources/js/auto/jquery-ui.js', 'public/js/auto/jquery-ui.js')
+   .js('resources/js/auto/jquery-1.11.2.min.js', 'public/js/auto/jquery-1.11.2.min.js')
+   .js('resources/js/auto/autocomplete.min.js', 'public/js/auto/autocomplete.min.js')
+   .styles('resources/js/auto/autocomplete.min.css', 'public/css/autocomplete.min.css')
+   .styles('resources/js/auto/autocomplete.themes.min.css', 'public/css/autocomplete.themes.min.css')
    .sass('resources/sass/app.scss', 'public/css');
