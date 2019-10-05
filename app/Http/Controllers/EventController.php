@@ -92,7 +92,9 @@ class EventController extends Controller
     public function likeEvents(Request $request)
     {
         $string = $request->string . "%";
-        $events = Event::where('event', 'like', $string)->get();
-        return $events;
+        $events = Event::select('event')->where('event', 'like', $string)->get();
+        return response()->json([
+            'all' => $events,
+        ]);
     }
 }

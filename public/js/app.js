@@ -36909,13 +36909,11 @@ module.exports = function(module) {
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 $(document).ready(function () {
-  console.log("ready!");
-  $("#strEvent").keyup(function () {
-    console.log($('#strEvent').val());
-
-    if ($('#strEvent').val() == 2) {
-      console.log('return');
-    }
+  $(function () {
+    var availableTutorials = ["ActionScript", "Bootstrap", "C", "C++"];
+    $("#automplete-1").autocomplete({
+      source: availableTutorials
+    });
   });
 });
 

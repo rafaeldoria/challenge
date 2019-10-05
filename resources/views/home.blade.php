@@ -29,6 +29,12 @@
                     </form>
                 </div>
 
+                <div class = "ui-widget">
+         <p>Type "a" or "s"</p>
+         <label for = "automplete-1">Tags: </label>
+         <input id = "automplete-1">
+      </div>
+
             </div>
         </div>
     </div>

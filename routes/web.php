@@ -18,7 +18,4 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::prefix('front')->group(function () {
-    Route::get('/service', 'ServiceController@index')->name('service');
-});
+Route::post('/events/autocomplete', 'HomeController@getLikeEvents');

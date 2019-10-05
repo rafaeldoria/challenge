@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\OauthClient;
 use Illuminate\Http\Request;
+use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Client;
 
 class HomeController extends Controller
 {
@@ -35,5 +37,29 @@ class HomeController extends Controller
         $this->request->session()->put('authtoken', $token);
 
         return view('home');
+    }
+
+    public function getLikeEvents(Request $request)
+    {
+        $client = new Client();
+        $token = $request->session()->get('authtoken')['access_token'];
+        
+        try {
+            $response = $client->post('http://webserver/api/v1/likeEvents', [
+                'headers' => [
+                    'Content-Type' => 'application/x-www-form-urlencoded',
+                    'Accept' => 'application/json',
+                    'Authorization' => "Bearer {$token}",
+                ],
+                'form_params' => [
+                    'string' =>  $request->str,
+                ]
+            ]);
+            
+            return json_decode((string) $response->getBody(), true);
+        } catch (RequestException $e) { } catch (ClientException $e) {
+            echo Psr7\str($e->getRequest());
+            echo Psr7\str($e->getResponse());
+        }
     }
 }
