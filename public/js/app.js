@@ -36909,30 +36909,11 @@ module.exports = function(module) {
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 $(document).ready(function () {
-  $("#strEvent").keyup(function (e) {
-    e.preventDefault();
-
-    if ($('#strEvent').val().length === 2) {
-      console.log($('#strEvent').val());
-      $.ajax({
-        url: '/events/autocomplete',
-        type: 'POST',
-        data: {
-          'str': $('#strEvent').val()
-        },
-        datatype: 'json',
-        success: function success(date) {
-          console.log(data);
-        },
-        error: function error(_error) {
-          console.log(_error);
-        }
-      });
-      var options = {
-        data: ["var", "bu", "teste"]
-      };
-      $("#strEvent").easyAutocomplete(options);
-    }
+  $(function () {
+    var availableTutorials = ["ActionScript", "Bootstrap", "C", "C++"];
+    $("#automplete-1").autocomplete({
+      source: availableTutorials
+    });
   });
 });
 
