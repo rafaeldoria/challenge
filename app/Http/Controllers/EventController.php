@@ -92,6 +92,17 @@ class EventController extends Controller
         return 'delete_event';
     }
 
+    public function eventsCache()
+    {
+        $events = Event::select('event')->distinct('event')->limit('50')->get();
+        $data = "'";
+        foreach ($events as $key => $value) {
+            $data .= ($value->event);
+        }
+        $data = str_replace("-","','",$data);
+        return $data."'";
+    }
+
     public function likeEvents(Request $request)
     {
         $string = $request->string . "%";
