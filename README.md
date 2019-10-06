@@ -11,6 +11,7 @@ docker-compose up -d
 
 ### Teste ambiente
 composer install
+cp .env.example .env
 docker-compose exec app php artisan key:generate  
 docker-compose exec app php artisan config:cache  
 Acessar localhost
@@ -40,5 +41,9 @@ Adicionar type 'Bearer Token' e adicionar o Token
 ### Npm instal
 npm instal && npm run production
 
-###Inserir dados table events
+### Inserir dados table events
 docker-compose exec app php artisan db:seed
+
+## Documentação API/Postman
+https://web.postman.co/collections/2773038-8a1fb8b9-9cb2-4584-879f-3282fe8c0f67?version=latest&workspace=73b43a44-1ef9-42f0-81dd-7f7fb845c8c2
+link collection: https://www.getpostman.com/collections/feb908f5dac47dd925e6
