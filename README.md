@@ -10,6 +10,7 @@ Composer 1.9.0
 docker-compose up -d  
 
 ### Teste ambiente
+composer install
 docker-compose exec app php artisan key:generate  
 docker-compose exec app php artisan config:cache  
 Acessar localhost
@@ -26,13 +27,15 @@ docker-compose exec app php artisan migrate
 ### Instalar passport
 docker-compose exec app php artisan passport:install
 
+## Utilização API's
 ### Criar usuário - Pegar token
 Utilizar rota users -> post (criar usuário)  
 Utilizar rota em auth - api/v1/auth_client -> post (pegar client_id e client_secret para acesso ao token)  
 Utilizar rota em auth - oauth/token -> post (pegar acess_token do tipo Bearer)
 
 ### Authorization API's
-Adicionar type 'Bearer Token' e adcionar o Token
+Adicionar type 'Bearer Token' e adicionar o Token
 
+## Utilização projeto
 ### Npm instal
 npm instal && npm run production
