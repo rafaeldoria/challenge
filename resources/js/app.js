@@ -2,6 +2,12 @@ require('./bootstrap');
 
 
 $(document).ready(function () {
+
+    $('#timeline').click(function () {
+        $('.container').show();
+    })
+
+
     // $("#strEvent").keyup(function (e) {
     //     e.preventDefault();
     //     if ($('#strEvent').val().length === 2) {

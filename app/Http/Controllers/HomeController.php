@@ -6,6 +6,7 @@ use App\Models\OauthClient;
 use Illuminate\Http\Request;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,7 @@ class HomeController extends Controller
         $this->middleware('auth');
         $this->oauth = new OauthClientController;
         $this->auth = $this->oauth->getCredentialsOauth();
+
     }
     
     /**
@@ -33,10 +35,10 @@ class HomeController extends Controller
     public function index()
     {
         $token = $this->oauth->getToken($this->auth);
-        
         $this->request->session()->put('authtoken', $token);
+        $events_json = (new EventController)->getEventsJson();
 
-        return view('home');
+        return view('home', ["events" => $events_json]);
     }
 
     public function getLikeEvents(Request $request)
