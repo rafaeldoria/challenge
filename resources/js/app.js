@@ -8,60 +8,26 @@ $(document).ready(function () {
     })
 
 
-    // $("#strEvent").keyup(function (e) {
-    //     e.preventDefault();
-    //     if ($('#strEvent').val().length === 2) {
-    //         console.log($('#strEvent').val());
+    $("#strEvent").keyup(function (e) {
+        e.preventDefault();
+        if ($('#strEvent').val().length >= 2) {
 
-    //         $.ajax({
-    //             url: '/events/autocomplete',
-    //             type: 'POST',
-    //             data: {
-    //                 'str': $('#strEvent').val()
-    //             },
-    //             datatype: 'json',
-    //             success: function (date) {
-    //                 console.log(data);
-    //             },
-    //             error: function (error) {
-    //                 console.log(error);
-    //             }
-    //         });
-    //         var options = {
-    //             data: ["var", "bu", "teste"]
+            var obj = JSON.parse($('#cache').val());
+            var options = {
+                data: obj,
 
-    //         }
-    //         $("#strEvent").easyAutocomplete(options);
-    //     }
-    // });
+                getValue: "event",
 
-    // $(function () {
-    //     var availableTutorials = [
-    //         "ActionScript",
-    //         "Bootstrap",
-    //         "C",
-    //         "C++",
-    //     ];
-    //     $("#automplete-1").autocomplete({
-    //         source: availableTutorials
-    //     });
-    // });
-    
-    // console.log(values);
-    // values.forEach(element => {
-        var obj = JSON.parse($('#cache').val());
-    // })
-        var options = {
-            data: obj,
-
-            getValue: "event",
-
-            list: {
-                match: {
-                    enabled: true
+                list: {
+                    match: {
+                        enabled: true
+                    }
                 }
-            }
-        };
+            };
 
-    $("#strEvent").easyAutocomplete(options);
+            $("#strEvent").easyAutocomplete(options);
+
+        }
+    });
+        
 });

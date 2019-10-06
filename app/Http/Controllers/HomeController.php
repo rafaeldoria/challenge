@@ -37,28 +37,25 @@ class HomeController extends Controller
         $token = $this->oauth->getToken($this->auth);
         $this->request->session()->put('authtoken', $token);
         $events_json = (new EventController)->getEventsJson();
-        $events_cache = (new EventController)->eventsCache();
+        $events_cache = $this->getCacheEvents();
         return view('home', ["events" => $events_json, "events_cache" => $events_cache]);
     }
 
-    public function getLikeEvents(Request $request)
+    public function getCacheEvents()
     {
         $client = new Client();
-        $token = $request->session()->get('authtoken')['access_token'];
-        
+        $token = $this->request->session()->get('authtoken')['access_token'];
+
         try {
-            $response = $client->post('http://webserver/api/v1/likeEvents', [
+            $response = $client->get('http://webserver/api/v1/events', [
                 'headers' => [
                     'Content-Type' => 'application/x-www-form-urlencoded',
                     'Accept' => 'application/json',
                     'Authorization' => "Bearer {$token}",
                 ],
-                'form_params' => [
-                    'string' =>  $request->str,
-                ]
             ]);
-            
-            return json_decode((string) $response->getBody(), true);
+
+            return $response->getBody();
         } catch (RequestException $e) { } catch (ClientException $e) {
             echo Psr7\str($e->getRequest());
             echo Psr7\str($e->getResponse());

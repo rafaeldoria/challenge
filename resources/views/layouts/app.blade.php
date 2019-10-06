@@ -20,8 +20,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    {{--  <link href="{{ asset('css/autocomplete.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/autocomplete.themes.min.css') }}" rel="stylesheet">  --}}
+    <link href="{{ asset('css/easy-autocomplete.min.css') }}" rel="stylesheet">
+    {{--  <link href="{{ asset('css/autocomplete.themes.min.css') }}" rel="stylesheet">  --}}
 
      
 </head>

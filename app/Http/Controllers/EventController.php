@@ -8,8 +8,6 @@ use GuzzleHttp\Client;
 
 class EventController extends Controller
 {
-    private $new_key;
-    private $price = 0;
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +17,7 @@ class EventController extends Controller
     {
         $minutes = \Carbon\Carbon::now()->addMinutes(10);
         $events = \Cache::remember('api::events', $minutes, function () {
-            return Event::all();
+            return json_encode(Event::select('event')->distinct('event')->limit('50')->get());
         });
 
         return $events;
@@ -97,15 +95,6 @@ class EventController extends Controller
         $events = Event::select('event')->distinct('event')->limit('50')->get();
         
         return $events;
-    }
-
-    public function likeEvents(Request $request)
-    {
-        $string = $request->string . "%";
-        $events = Event::select('event')->where('event', 'like', $string)->get();
-        return response()->json([
-            'all' => $events,
-        ]);
     }
 
     public function getEventsJson()
