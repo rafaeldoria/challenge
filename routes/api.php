@@ -27,6 +27,5 @@ Route::middleware('auth:api')->prefix('v1')->group(function(){
 
 Route::post('v1/auth_client', 'OAuthClientController@show');
 
-Route::middleware('auth:api')->post('v1/likeEvents', 'EventController@likeEvents');
 
-    Auth::routes();
+Auth::routes();

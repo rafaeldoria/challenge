@@ -42,18 +42,16 @@
                             <h4>Events news</h4>
                             @foreach ($events as $event)
                                 <ul class="timeline">
-                                        Timestamp: {{$event["timestamp"]}} </br>
-                                        Revenue: {{$event["revenue"]}} </br>
-                                        Transaction_id: {{$event["transaction_id"]}}</br>
-                                        Store_name: {{$event["store_name"]}}</br>
-                                        @foreach ($event["products"] as $product)
-                                            Name: {{$product["name"]}}</br>
-                                            Price: {{$product["price"]}}</br>
-                                        @endforeach
-                                        
-                                    </ul>
-                                @endforeach
-                                
+                                    Timestamp: {{$event["timestamp"]}} </br>
+                                    Revenue: {{$event["revenue"]}} </br>
+                                    Transaction_id: {{$event["transaction_id"]}}</br>
+                                    Store_name: {{$event["store_name"]}}</br>
+                                    @foreach ($event["products"] as $product)
+                                        Name: {{$product["name"]}}</br>
+                                        Price: {{$product["price"]}}</br>
+                                    @endforeach
+                                </ul>
+                            @endforeach
                         </div>
                     </div>
                 </div>

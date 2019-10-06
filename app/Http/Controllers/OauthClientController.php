@@ -61,7 +61,7 @@ class OauthClientController extends Controller
                     'client_id' => $auth['client_id'],
                     'client_secret' => $auth['client_secret'],
                     'username' => \Auth::user()->email,
-                    'password' => 'dito',
+                    'password' => base64_decode(\Session::get('password')),
                     'scope' => ''
                 ],
             ]);
