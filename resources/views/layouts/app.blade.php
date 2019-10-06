@@ -11,8 +11,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/auto/jquery-1.11.2.min.js') }}" defer></script>
-    <script src="{{ asset('js/auto/autocomplete.min.js') }}" defer></script>
+    {{--  <script src="{{ asset('js/auto/jquery-1.11.2.min.js') }}" defer></script>  --}}
+    {{--  <script src="{{ asset('js/auto/autocomplete.min.js') }}" defer></script>  --}}
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -20,8 +20,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/autocomplete.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/autocomplete.themes.min.css') }}" rel="stylesheet">
+    {{--  <link href="{{ asset('css/autocomplete.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/autocomplete.themes.min.css') }}" rel="stylesheet">  --}}
 
      
 </head>
