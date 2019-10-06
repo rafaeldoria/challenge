@@ -39,3 +39,6 @@ Adicionar type 'Bearer Token' e adicionar o Token
 ## Utilização projeto
 ### Npm instal
 npm instal && npm run production
+
+###Inserir dados table events
+docker-compose exec app php artisan db:seed
