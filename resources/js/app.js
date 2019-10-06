@@ -46,4 +46,22 @@ $(document).ready(function () {
     //         source: availableTutorials
     //     });
     // });
+    
+    // console.log(values);
+    // values.forEach(element => {
+        var obj = JSON.parse($('#cache').val());
+    // })
+        var options = {
+            data: obj,
+
+            getValue: "event",
+
+            list: {
+                match: {
+                    enabled: true
+                }
+            }
+        };
+
+    $("#strEvent").easyAutocomplete(options);
 });

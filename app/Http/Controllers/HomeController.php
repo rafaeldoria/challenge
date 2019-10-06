@@ -37,8 +37,8 @@ class HomeController extends Controller
         $token = $this->oauth->getToken($this->auth);
         $this->request->session()->put('authtoken', $token);
         $events_json = (new EventController)->getEventsJson();
-        $this->request->session()->put('eventscache', (new EventController)->eventsCache());
-        return view('home', ["events" => $events_json]);
+        $events_cache = (new EventController)->eventsCache();
+        return view('home', ["events" => $events_json, "events_cache" => $events_cache]);
     }
 
     public function getLikeEvents(Request $request)

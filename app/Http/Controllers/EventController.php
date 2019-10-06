@@ -95,12 +95,8 @@ class EventController extends Controller
     public function eventsCache()
     {
         $events = Event::select('event')->distinct('event')->limit('50')->get();
-        $data = "'";
-        foreach ($events as $key => $value) {
-            $data .= ($value->event);
-        }
-        $data = str_replace("-","','",$data);
-        return $data."'";
+        
+        return $events;
     }
 
     public function likeEvents(Request $request)

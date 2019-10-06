@@ -25,6 +25,9 @@
                         <div class="invalid-feedback" style="display:none">
                             Por favor, informe um evento válido.
                         </div>
+                        <div style="display:none">
+                            <input type="text" id="cache" value="{{$events_cache}}">
+                        </div>
                         </div>
                     </form>
                 </div>
